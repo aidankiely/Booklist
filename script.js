@@ -1,7 +1,7 @@
-const list = document.querySelector('#book-list ul');
+const list = document.querySelector('#task-list ul');
 const forms = document.forms;
 
-// delete books
+// delete tasks
 list.addEventListener('click', (e) => {
   if(e.target.className == 'delete'){
     const li = e.target.parentElement;
@@ -9,23 +9,23 @@ list.addEventListener('click', (e) => {
   }
 });
 
-// add books
-const addForm = forms['add-book'];
+// add tasks
+const addForm = forms['add-task'];
 addForm.addEventListener('submit', function(e){
   e.preventDefault();
 
   // create elements
   const value = addForm.querySelector('input[type="text"]').value;
   const li = document.createElement('li');
-  const bookName = document.createElement('span');
+  const taskName = document.createElement('span');
   const deleteBtn = document.createElement('span');
 
   // add text content
-  bookName.textContent = value;
+  taskName.textContent = value;
   deleteBtn.textContent = 'delete';
 
   // append to DOM
-  li.appendChild(bookName);
+  li.appendChild(taskName);
   li.appendChild(deleteBtn);
   list.appendChild(li);
   //list.insertBefore(li, list.querySelector('li:first-child'));
